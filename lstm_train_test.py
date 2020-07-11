@@ -842,7 +842,7 @@ def main():
             data_dict, args)
 
         # test_batch_size should be lesser than joblib_batch_size
-        Parallel(n_jobs=-2, verbose=2)(
+        Parallel(n_jobs=1, verbose=2)(
             delayed(infer_helper)(test_data_subsets[i], i, encoder, decoder,
                                   model_utils, temp_save_dir)
             for i in range(0, test_size, args.joblib_batch_size))
